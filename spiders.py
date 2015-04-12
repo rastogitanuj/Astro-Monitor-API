@@ -106,3 +106,18 @@ class SwiftSpider(object):
             error_message = "Exception thrown: " + str(e) +"\n"+traceback.format_exc()
             print error_message
             raise e
+
+class SwiftDataSpider(object):
+
+    def parse(self, url):
+        conversion_ratio = 1/0.000218
+        page = urllib2.urlopen(url)
+        text = page.read()
+        lines = text.split('\n')
+        nlines = len(lines)
+        data = []
+        limit = 50
+        for i in xrange(nlines-(limit + 2), nlines-1):
+            text = lines[i].split()
+            data.append((int(text[0]), float(text[1])*conversion_ratio ))
+        return data

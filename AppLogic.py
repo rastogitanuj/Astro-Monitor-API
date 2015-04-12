@@ -135,7 +135,7 @@ class AppLogic(object):
                     json_data["Today"] = str(entity.Today)
                 else:
                     json_data["Today"] = "-"
-                if entity.Yesterday is None:
+                if entity.Yesterday is not None:
                     json_data["Yesterday"] = str(entity.Yesterday)
                 else:
                     json_data["Yesterday"] = "-"

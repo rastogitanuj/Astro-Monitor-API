@@ -9,6 +9,8 @@ handlers:
   script: astromonitorapp.application
 - url: /transients
   script: astromonitorapp.application
+- url: /graphdata
+  script: astromonitorapp.application
 
 libraries:
 - name: webapp2
